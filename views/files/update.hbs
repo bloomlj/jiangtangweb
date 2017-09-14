@@ -1,0 +1,16 @@
+<h1>upload</h1>
+<p>上传</p>
+<form method="post" action="/files/{{file.id}}/update" >
+  {{file.filename}}
+<ul>
+  <li>
+    category：<select name="category">
+      <option value="none">无</option>
+    </select>
+  </li>
+  <li>
+    说明：<textarea name="note" />{{file.note}}</textarea>
+  </li>
+</ul>
+<button>提交</button>
+</form>

@@ -1,0 +1,11 @@
+<h1>Update Maker:{{maker.login}},{{maker.name}}</h1>
+<p>更新maker</p>
+<form method="post" action="/makers/{{maker.id}}/avatar" enctype="multipart/form-data" >
+<ul>
+  <li>
+    头像：<input name="avatar" value="" type="file"/>
+  </li>
+
+</ul>
+<button>提交</button>
+</form>

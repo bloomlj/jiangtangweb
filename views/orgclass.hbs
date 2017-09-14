@@ -1,0 +1,50 @@
+<h1>{{title}}</h1>
+<p>Welcome to team{{title}}</p>
+<div>
+  <form method="get" action="/orgclass/byschool">
+    学院：<select name="school" id="school_selector">
+    </select>
+    年级:<select name="year" id="year_selector">
+    </select>
+    <input type="submit" />
+  </form>
+</div>
+
+<ol>
+    {{#items}}
+    <li>
+    <div>ID：{{bid}}</div>
+    <div>代码：{{bjdm}}</div>
+    <div>名称：{{bjmc}}</div>
+    <div><a href="/assessment/byclass/{{bjdm}}">查看学生成绩</a></div>
+    </li>
+    {{/items}}
+</ol>
+<script>
+console.log(qs['school']);
+
+var today = new Date();
+var year = today.getFullYear();
+for (var i = year; i > year-10; i--) {
+  if(i == qs['year']) {
+    $('<option value='+i+' selected>'+i+'</optin>').appendTo("#year_selector");
+  }else{
+    $('<option value='+i+' >'+i+'</optin>').appendTo("#year_selector");
+  }
+
+
+}
+
+$.getJSON("/api/schools",function(data){
+  //console.dir(data);
+  for (var i = 0; i < data.schools.length; i++) {
+    if(data.schools[i].yxdm == qs['school']) {
+      $('<option value='+data.schools[i].yxdm+' selected>'+data.schools[i].yxmc+'</optin>').appendTo("#school_selector");
+    }else{
+      $('<option value='+data.schools[i].yxdm+'>'+data.schools[i].yxmc+'</optin>').appendTo("#school_selector");
+    }
+
+  }
+
+});
+</script>

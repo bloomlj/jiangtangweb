@@ -1,0 +1,14 @@
+<h1>{{title}}</h1>
+<p>Welcome to student{{title}}</p>
+<ol>
+    {{#items}}
+    <li>
+    <div>姓名：{{xm}}</div>
+    <div>学号：{{xh}}</div>
+    <div>实作平均成绩：{{make_cj_avg}}</div>
+    <div>报告平均成绩：{{report_cj_avg}}</div>
+    <div>考试成绩：{{exam_score}}</div>
+    <div><a href="/assessment/bystudent/{{xh}}">查看详细</a></div>
+    </li>
+    {{/items}}
+</ol>

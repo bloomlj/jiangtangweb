@@ -1,0 +1,32 @@
+<h1>{{title}}</h1>
+<p>Welcome to student{{title}}</p>
+<h3>最终成绩</h3>
+<div >
+  最终成绩：<span id="final_cj"></span> ／
+  实作成绩：<span id="make_cj_avg"></span> ／
+  报告成绩：<span id="report_cj_avg"></span>／
+  考试成绩：<span id="exam_score"></span>
+
+</div>
+<h3>明细</h3>
+<ol>
+    {{#items}}
+    <li>
+    <div>姓名：{{xm}}</div>
+    <div>学号：{{xh}}</div>
+    <div>项目(工种):{{gzmc}}</div>
+    <div>实作成绩：{{cj}}</div>
+    <div>报告成绩：{{report_cj}}</div>
+    </li>
+    {{/items}}
+</ol>
+<script>
+$.getJSON("/api/assessment/{{student_id}}",function(data){
+  console.dir(data);
+      $('<b>'+(data.assessment.make_cj_avg*0.75+data.assessment.report_cj_avg+data.assessment.exam_score*0.1)+'</b>').appendTo('#final_cj');
+      $('<b>'+data.assessment.make_cj_avg+'</b>').appendTo('#make_cj_avg');
+      $('<b>'+data.assessment.report_cj_avg+'</b>').appendTo('#report_cj_avg');
+      $('<b>'+data.assessment.exam_score+'</b>').appendTo('#exam_score');
+});
+
+</script>

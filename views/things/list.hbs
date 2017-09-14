@@ -1,0 +1,15 @@
+<h1>{{title}}</h1>
+<p>Welcome to makers{{title}}</p>
+<p>{{message}}</p>
+<ol>
+    {{#things}}
+    <li>
+    <div>姓名：{{name}}</div>
+    <div>登录名:{{login}}</div>
+    <div>注册于：{{created_at}}</div>
+    <div>简介：{{about}}</div>
+    <div><a href="/makers/{{id}}/update">update information</a></div>
+    <div><a href="/makers/{{id}}/delete" onclick="return confirm('Are you sure you want to delete this item?');">delete him or her</a></div>
+    </li>
+    {{/things}}
+</ol>

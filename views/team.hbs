@@ -1,0 +1,13 @@
+<h1>{{title}}</h1>
+<p>Welcome to team{{title}}</p>
+<ol>
+    {{#teams}}
+    <li>
+    <div>TEAM编号:{{team_id}}</div>
+    <div>学期：{{tm}}</div>
+    <div>项目编号：{{project_id}}</div>
+    <div>项目名称：{{project_name}}</div>
+    <div><a href="student/byteam/{{team_id}}">查看成员</a></div>
+    </li>
+    {{/teams}}
+</ol>

@@ -1,0 +1,18 @@
+<h1>upload</h1>
+<p>上传</p>
+<form method="post" action="/files" enctype="multipart/form-data" >
+<ul>
+  <li>
+    文件：<input name="share-file" value="" type="file"/>
+  </li>
+  <li>
+    category：<select name="category">
+      <option value="none">无</option>
+    </select>
+  </li>
+  <li>
+    说明：<textarea name="note" /></textarea>
+  </li>
+</ul>
+<button>提交</button>
+</form>

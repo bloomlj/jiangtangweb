@@ -1,0 +1,10 @@
+<h1>{{title}}</h1>
+<p>Welcome to student{{title}}</p>
+<form method="post" action="/assessment/project">
+<ul>
+  {{#items}}
+  <li>{{gzmc}} 实作成绩:<input name="make_score[gCode]" value="{{cj}}"/> 报告成绩:<input name="report_score[gCode]" value="{{report_cj}}"/> </li>
+  {{/items}}
+</ul>
+<button>提交</button>
+</form>
