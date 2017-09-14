@@ -1,3 +1,45 @@
+-- Sequence: public.files_id_seq
+
+-- DROP SEQUENCE public.files_id_seq;
+
+CREATE SEQUENCE public.files_id_seq
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 9223372036854775807
+  START 2
+  CACHE 1;
+ALTER TABLE public.files_id_seq
+  OWNER TO postgres;
+
+
+  -- Sequence: public.makers_id_seq
+
+  -- DROP SEQUENCE public.makers_id_seq;
+
+  CREATE SEQUENCE public.makers_id_seq
+    INCREMENT 1
+    MINVALUE 1
+    MAXVALUE 9223372036854775807
+    START 6
+    CACHE 1;
+  ALTER TABLE public.makers_id_seq
+    OWNER TO postgres;
+
+    -- Sequence: public.things_id_seq
+
+    -- DROP SEQUENCE public.things_id_seq;
+
+    CREATE SEQUENCE public.things_id_seq
+      INCREMENT 1
+      MINVALUE 1
+      MAXVALUE 9223372036854775807
+      START 1
+      CACHE 1;
+    ALTER TABLE public.things_id_seq
+      OWNER TO postgres;
+
+
+
 -- Table: public.makers
 
 -- DROP TABLE public.makers;
