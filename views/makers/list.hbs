@@ -1,10 +1,17 @@
 <h1>{{title}}</h1>
 <p>Welcome to makers{{title}}</p>
+<div><a href="/makers/create" title="添加一位创客">添加</a></div>
 <p>{{message}}</p>
 <ol>
     {{#makers}}
     <li>
     <div>姓名：{{name}}</div>
+    <div>性别：{{sex}}</div>
+    <div>证件号：{{idcard}}</div>
+    <div>手机号：{{mobile}}</div>
+    <div>qq:{{qq}}</div>
+    <div>专业领域:{{profield}}</div>
+    <div>rfid:{{rfid}}</div>
     <div>登录名:{{login}}</div>
     <div>注册于：{{created_at}}</div>
     <div>简介：{{about}}</div>

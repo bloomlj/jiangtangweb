@@ -40,27 +40,42 @@ ALTER TABLE public.files_id_seq
 
 
 
--- Table: public.makers
+      -- Table: public.makers
 
--- DROP TABLE public.makers;
+      -- DROP TABLE public.makers;
 
-CREATE TABLE public.makers
-(
-  id integer NOT NULL DEFAULT nextval('makers_id_seq'::regclass),
-  login character varying(100),
-  password character varying(100),
-  name character varying(50),
-  about text,
-  created_at timestamp without time zone,
-  updated_at timestamp without time zone,
-  avatar character varying(255),
-  CONSTRAINT makers_pkey PRIMARY KEY (id)
-)
-WITH (
-  OIDS=FALSE
-);
-ALTER TABLE public.makers
-  OWNER TO postgres;
+      CREATE TABLE public.makers
+      (
+        id integer NOT NULL DEFAULT nextval('makers_id_seq'::regclass),
+        login character varying(100), -- 最好使用电子邮件
+        password character varying(100),
+        name character varying(50),
+        about text,
+        created_at timestamp without time zone,
+        updated_at timestamp without time zone,
+        avatar character varying(255),
+        sex character(1), -- 性别，男或者女
+        idcard character varying(20), -- 身份证号或者学号
+        rfid character varying(255), -- rfid卡号
+        mobile character varying(20), -- 手机号码
+        qq character varying(20), -- qq号码
+        profield character varying(255), -- 专业领域
+        CONSTRAINT makers_pkey PRIMARY KEY (id)
+      )
+      WITH (
+        OIDS=FALSE
+      );
+      ALTER TABLE public.makers
+        OWNER TO postgres;
+      COMMENT ON COLUMN public.makers.login IS '最好使用电子邮件';
+      COMMENT ON COLUMN public.makers.sex IS '性别，男或者女';
+      COMMENT ON COLUMN public.makers.idcard IS '身份证号或者学号';
+      COMMENT ON COLUMN public.makers.rfid IS 'rfid卡号';
+      COMMENT ON COLUMN public.makers.mobile IS '手机号码';
+      COMMENT ON COLUMN public.makers.qq IS 'qq号码';
+      COMMENT ON COLUMN public.makers.profield IS '专业领域';
+
+
 
 
   -- Table: public.files

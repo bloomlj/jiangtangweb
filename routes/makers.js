@@ -41,7 +41,7 @@ router.get('/create', function(req, res, next) {
 /* Post makers to  create maker. */
 router.post('/', function(req, res, next) {
     console.log(req.body);
-    pool.query('insert into makers(login,password,name,about,created_at) values ($1,$2,$3,$4,now()) ', [req.body['login'],req.body['password'],req.body['name'],req.body['about']],function(err, dbres) {
+    pool.query('insert into makers(login,password,name,about,created_at,sex,idcard,rfid,mobile,qq,profield) values ($1,$2,$3,$4,now(),$5,$6,$7,$8,$9,$10) ', [req.body['login'],req.body['password'],req.body['name'],req.body['about'],req.body['sex'],req.body['idcard'],req.body['rfid'],req.body['mobile'],req.body['qq'],req.body['profield']],function(err, dbres) {
       if(err) {
         console.error('error running query', err);
         res.render('error', {message: 'query error'});
@@ -83,9 +83,9 @@ router.get('/:id/update', function(req, res, next) {
 });
 
 
-/* GET users listing. */
+/* update users . */
 router.post('/:id/update', function(req, res, next) {
-  pool.query('update makers set name=$2,about=$3, updated_at= now() where id = $1', [req.params['id'],req.body['name'],req.body['about']],function(err, dbres) {
+  pool.query('update makers set name=$2,about=$3, updated_at= now(),sex=$4,idcard=$5,rfid=$6,mobile=$7,qq=$8,profield=$9 where id = $1', [req.params['id'],req.body['name'],req.body['about'],req.body['sex'],req.body['idcard'],req.body['rfid'],req.body['mobile'],req.body['qq'],req.body['profield']],function(err, dbres) {
     if(err) {
       console.error('error running query', err);
       res.render('error', {message: 'query error'});
