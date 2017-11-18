@@ -40,8 +40,8 @@ router.get('/create', function(req, res, next) {
 
 /* Post makers to  create maker. */
 router.post('/', function(req, res, next) {
-    console.log(req.body);
-    pool.query('insert into makers(login,password,name,about,created_at,sex,idcard,rfid,mobile,qq,profield) values ($1,$2,$3,$4,now(),$5,$6,$7,$8,$9,$10) ', [req.body['login'],req.body['password'],req.body['name'],req.body['about'],req.body['sex'],req.body['idcard'],req.body['rfid'],req.body['mobile'],req.body['qq'],req.body['profield']],function(err, dbres) {
+    //console.log(req.body);
+    pool.query('insert into makers(login,password,name,about,created_at,sex,idcard,rfid,mobile,qq,profield,memberid) values ($1,$2,$3,$4,now(),$5,$6,$7,$8,$9,$10,$11)', [req.body['login'],req.body['password'],req.body['name'],req.body['about'],req.body['sex'],req.body['idcard'],req.body['rfid'],req.body['mobile'],req.body['qq'],req.body['profield'],req.body['memberid']],function(err, dbres) {
       if(err) {
         console.error('error running query', err);
         res.render('error', {message: 'query error'});
