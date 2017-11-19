@@ -2,8 +2,11 @@
 <p>Welcome to makers{{title}}</p>
 <div><a href="/makers/create" title="添加一位创客">添加</a></div>
 <p>{{message}}</p>
+
 <ol>
+  <div class="row">
     {{#makers}}
+    <div class="col float-left">
     <li>
     <div>会员号：{{memberid}}</div>
     <div>姓名：{{name}}</div>
@@ -19,5 +22,7 @@
     <div><a href="/makers/{{id}}/update">update information</a></div>
     <div><a href="/makers/{{id}}/delete" onclick="return confirm('Are you sure you want to delete this item?');">delete him or her</a></div>
     </li>
+  </div>
     {{/makers}}
+    </div>
 </ol>
